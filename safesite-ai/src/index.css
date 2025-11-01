@@ -18,8 +18,8 @@
 body {
   height: 100%;
   width: 100%;
-  background: #714708;
   background: radial-gradient(at center bottom, #4b2e02, #290A51);
+  /* background: #000000; */
   color: white;
   font-family: 'Poppins';
   animation: gentleFloat 25s ease-in-out infinite;
