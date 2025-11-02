@@ -13,6 +13,10 @@ import {
 } from "lucide-react";
 
 const Dashboard = () => {
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    window.location.href = "/auth";
+  };
   const [outlierEvents, setOutlierEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedEvent, setSelectedEvent] = useState(null);
@@ -23,8 +27,6 @@ const Dashboard = () => {
     totalViolations: 0,
     complianceRate: 0
   });
-
-  // Replace with your actual API Gateway endpoint
   const API_ENDPOINT = 'https://09vprol3o9.execute-api.ap-south-1.amazonaws.com/prod/outliers';
 
   // Fetch outlier events from your backend
@@ -109,7 +111,7 @@ const Dashboard = () => {
   };
 
   return (
-    <section className="min-h-screen w-full text-white bg-[radial-gradient(at_center_bottom,_#4b2e02,_#290A51)] px-8 py-10">
+    <section className="min-h-screen w-full text-white `bg-[radial-gradient(at_center_bottom,_#4b2e02,_#290A51)]` px-8 py-10">
       <div className="max-w-7xl mx-auto space-y-8">
         
         {/* Header */}
@@ -123,6 +125,13 @@ const Dashboard = () => {
               <p className="text-gray-400 text-sm">Real-time Construction Safety Monitoring</p>
             </div>
           </div>
+          <div className="flex items-center gap-4">
+            <button
+            onClick={handleLogout}
+            className="flex items-center w-full px-4 py-2 cursor-pointer rounded-lg bg-linear-to-r from-orange-400 to-pink-500 text-white font-semibold hover:opacity-90 transition"
+          >
+            Logout
+          </button>
           <button
             onClick={fetchOutlierEvents}
             disabled={loading}
@@ -131,11 +140,13 @@ const Dashboard = () => {
             <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
             Refresh
           </button>
+          </div>
+          
         </div>
 
         {/* KPI Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          <div className="bg-gradient-to-br from-red-500/20 to-red-600/20 rounded-xl p-5 border border-red-500/30 backdrop-blur">
+          <div className="bg-linear-to-br from-red-500/20 to-red-600/20 rounded-xl p-5 border border-red-500/30 backdrop-blur">
             <div className="flex items-center justify-between mb-2">
               <AlertTriangle className="w-6 h-6 text-red-400" />
               <TrendingUp className="w-4 h-4 text-red-300" />
@@ -144,7 +155,7 @@ const Dashboard = () => {
             <p className="text-sm text-red-200 mt-1">Total Violations</p>
           </div>
 
-          <div className="bg-gradient-to-br from-orange-500/20 to-orange-600/20 rounded-xl p-5 border border-orange-500/30 backdrop-blur">
+          <div className="bg-linear-to-br from-orange-500/20 to-orange-600/20 rounded-xl p-5 border border-orange-500/30 backdrop-blur">
             <div className="flex items-center justify-between mb-2">
               <Clock className="w-6 h-6 text-orange-400" />
               <Video className="w-4 h-4 text-orange-300" />
@@ -153,7 +164,7 @@ const Dashboard = () => {
             <p className="text-sm text-orange-200 mt-1">Alerts Today</p>
           </div>
 
-          <div className="bg-gradient-to-br from-green-500/20 to-green-600/20 rounded-xl p-5 border border-green-500/30 backdrop-blur">
+          <div className="bg-linear-to-br from-green-500/20 to-green-600/20 rounded-xl p-5 border border-green-500/30 backdrop-blur">
             <div className="flex items-center justify-between mb-2">
               <CheckCircle className="w-6 h-6 text-green-400" />
               <Shield className="w-4 h-4 text-green-300" />
@@ -162,7 +173,7 @@ const Dashboard = () => {
             <p className="text-sm text-green-200 mt-1">Compliance Rate</p>
           </div>
 
-          <div className="bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-xl p-5 border border-blue-500/30 backdrop-blur">
+          <div className="bg-linear-to-br from-blue-500/20 to-blue-600/20 rounded-xl p-5 border border-blue-500/30 backdrop-blur">
             <div className="flex items-center justify-between mb-2">
               <Video className="w-6 h-6 text-blue-400" />
               <Eye className="w-4 h-4 text-blue-300" />
@@ -243,7 +254,7 @@ const Dashboard = () => {
                 <div
                   key={idx}
                   onClick={() => setSelectedEvent(event)}
-                  className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-lg overflow-hidden border border-white/10 hover:border-orange-400/50 cursor-pointer transition group"
+                  className="bg-linear-to-br from-gray-800/50 to-gray-900/50 rounded-lg overflow-hidden border border-white/10 hover:border-orange-400/50 cursor-pointer transition group"
                 >
                   {/* Image with annotated bounding boxes */}
                   <div className="relative h-48 bg-gray-900">
