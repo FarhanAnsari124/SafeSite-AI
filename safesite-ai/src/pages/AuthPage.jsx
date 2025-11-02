@@ -33,20 +33,17 @@ const AuthPage = () => {
 
     try {
       if (isLogin) {
-        const res = await API.post(
-          "/auth/login",
-          {
-            username: form.email, // backend expects `username`
-            password: form.password,
-          },
-          {
-            headers: { "Content-Type": "application/json" }, // ✅ send JSON
-          }
-        );
+      const formData = new URLSearchParams();
+      formData.append("username", form.email); // FastAPI expects 'username'
+      formData.append("password", form.password);
 
-        localStorage.setItem("token", res.data.access_token);
-        setMsg("Login successful 🎉 Redirecting...");
-        setTimeout(() => (window.location.href = "/dashboard"), 1000);
+      const res = await API.post("/auth/login", formData, {
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      });
+
+      localStorage.setItem("token", res.data.access_token);
+      setMsg("Login successful 🎉 Redirecting...");
+      setTimeout(() => (window.location.href = "/dashboard"), 1000);
       } else {
         if (form.password !== form.confirmPassword) {
           setMsg("Passwords do not match ❌");
