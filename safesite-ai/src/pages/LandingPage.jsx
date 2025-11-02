@@ -18,7 +18,7 @@ export default function Hero() {
           <h3 className="font-semibold text-lg ">SafeSite AI</h3>
         </div>
 
-        <button onClick={() => navigate("/auth")} className="px-5 py-2.5 rounded-full  bg-linear-to-r from-orange-500 to-fuchsia-600 text-white font-semibold bg-linear-to-r from-orange-500 to-fuchsia-600 shadow-[0_0_25px_rgba(255,122,0,0.4)] hover:shadow-[0_0_40px_rgba(255,122,0,0.6)] hover:scale-105 transition-all duration-300">
+        <button onClick={() => navigate("/auth")} className="px-5 py-2.5 cursor-pointer rounded-full  bg-linear-to-r from-orange-500 to-fuchsia-600 text-white font-semibold shadow-[0_0_25px_rgba(255,122,0,0.4)] hover:shadow-[0_0_40px_rgba(255,122,0,0.6)] hover:scale-105 transition-all duration-300">
           Login
         </button>
       </nav>
@@ -67,7 +67,7 @@ Classes Detected: Helmet, No Helmet, Suit, No Suit.<br/>
       <ImageSlider />
       </div>
       
-      <button  onClick={() => navigate("/auth")} className="mt-10 px-8 py-3 text-lg font-semibold rounded-3xl bg-linear-to-r from-orange-500 to-fuchsia-600 shadow-[0_0_25px_rgba(255,122,0,0.4)] hover:shadow-[0_0_40px_rgba(255,122,0,0.6)] hover:scale-105 transition-all duration-300">
+      <button  onClick={() => navigate("/auth")} className="mt-10 px-8 py-3 text-lg font-semibold cursor-pointer rounded-3xl bg-linear-to-r from-orange-500 to-fuchsia-600 shadow-[0_0_25px_rgba(255,122,0,0.4)] hover:shadow-[0_0_40px_rgba(255,122,0,0.6)] hover:scale-105 transition-all duration-300">
           Try SafeSite AI
         </button>
       {/* Footer */}

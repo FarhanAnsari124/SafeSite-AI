@@ -52,7 +52,7 @@ body::after{
 }
 
 
-@keyframes gentleFloat {
+/* @keyframes gentleFloat {
   0%,
   100% {
     transform: translateY(0px) translateX(0px);
@@ -66,4 +66,4 @@ body::after{
   75% {
     transform: translateY(-12px) translateX(2px);
   }
-}
+} */

@@ -3,6 +3,7 @@ import LandingPage from "./pages/LandingPage";
 import AnimatedBackground from "./components/AnimatedBackground";
 import AuthPage from "./pages/AuthPage";
 import Dashboard from "./pages/Dashboard";
+import ProtectedRoute from "./components/ProtectedRoute"; // 🧩 Add this
 import "./index.css";
 
 export default function App() {
@@ -20,7 +21,15 @@ export default function App() {
             {/* Auth Page (Login/Signup toggle) */}
             <Route path="/auth" element={<AuthPage />} />
 
-            <Route path="/dashboard" element={<Dashboard />} /> {/* ✅ */}
+            {/* ✅ Protected Dashboard Route */}
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute>
+                  <Dashboard />
+                </ProtectedRoute>
+              }
+            />
           </Routes>
         </div>
       </div>
