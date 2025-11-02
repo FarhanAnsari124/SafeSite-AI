@@ -15,14 +15,8 @@ export default function Hero() {
       <nav className="w-full max-w-7xl flex justify-between items-center py-6">
         <div className="flex items-center gap-2">
           <img src="/logo.svg" alt="SafeSite AI" className="w-8 h-8" />
-          <h3 className="font-semibold text-lg">SafeSite AI</h3>
+          <h3 className="font-semibold text-lg ">SafeSite AI</h3>
         </div>
-
-        <ul className="hidden md:flex items-center gap-8 text-sm text-gray-300">
-          <li><a href="#" className="hover:text-white">Docs</a></li>
-          <li><a href="#" className="hover:text-white">Demo</a></li>
-          <li><a href="#" className="hover:text-white">Contact</a></li>
-        </ul>
 
         <button onClick={() => navigate("/auth")} className="px-5 py-2.5 rounded-full  bg-linear-to-r from-orange-500 to-fuchsia-600 text-white font-semibold bg-linear-to-r from-orange-500 to-fuchsia-600 shadow-[0_0_25px_rgba(255,122,0,0.4)] hover:shadow-[0_0_40px_rgba(255,122,0,0.6)] hover:scale-105 transition-all duration-300">
           Login
