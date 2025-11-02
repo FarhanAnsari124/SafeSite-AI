@@ -33,13 +33,16 @@ const AuthPage = () => {
 
     try {
       if (isLogin) {
-        const formData = new URLSearchParams();
-        formData.append("username", form.email);
-        formData.append("password", form.password);
-
-        const res = await API.post("/auth/login", formData, {
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        });
+        const res = await API.post(
+          "/auth/login",
+          {
+            username: form.email, // backend expects `username`
+            password: form.password,
+          },
+          {
+            headers: { "Content-Type": "application/json" }, // ✅ send JSON
+          }
+        );
 
         localStorage.setItem("token", res.data.access_token);
         setMsg("Login successful 🎉 Redirecting...");
